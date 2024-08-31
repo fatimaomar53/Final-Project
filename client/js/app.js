@@ -1,10 +1,10 @@
-// Define API keys and base URLs
-const geonamesBaseURL = "http://api.geonames.org/searchJSON?q=";
-const weatherbitBaseURL = "https://api.weatherbit.io/v2.0/current?city=";
-const pixabayBaseURL = "https://pixabay.com/api/";
-const geonamesAPIKey = "your_geonames_api_key"; // Replace with your Geonames API key
-const weatherbitAPIKey = "e6e5cbc4674c4002b13a2069218f3f05";
-const pixabayAPIKey = "your_pixabay_api_key"; // Replace with your Pixabay API key
+// Define API keys and base URLs from environment variables
+const geonamesBaseURL = process.env.GEONAMES_BASE_URL;
+const weatherbitBaseURL = process.env.WEATHERBIT_BASE_URL;
+const pixabayBaseURL = process.env.PIXABAY_BASE_URL;
+const geonamesAPIKey = process.env.GEONAMES_API_KEY;
+const weatherbitAPIKey = process.env.WEATHERBIT_API_KEY;
+const pixabayAPIKey = process.env.PIXABAY_API_KEY;
 
 // Primary object with placeholder values
 let projectData = {
@@ -35,14 +35,14 @@ export function initializeApp() {
 
     // Fetch data from APIs
     Promise.all([
-      getWeatherData(weatherbitBaseURL, location, `&appid=${weatherbitAPIKey}`),
+      getWeatherData(weatherbitBaseURL, location, `&key=${weatherbitAPIKey}`),
       getGeonamesData(geonamesBaseURL, location, `&username=${geonamesAPIKey}`),
       getPixabayData(pixabayBaseURL, location, `&key=${pixabayAPIKey}`),
     ])
       .then(([weatherData, geonamesData, pixabayData]) => {
         if (
           weatherData &&
-          weatherData.main &&
+          weatherData.data &&
           pixabayData &&
           pixabayData.hits.length > 0
         ) {
@@ -50,8 +50,8 @@ export function initializeApp() {
           sendData("/add", {
             location: location,
             date: departureDate,
-            temp: weatherData.main.temp,
-            weather: weatherData.weather[0].description,
+            temp: weatherData.data[0].temp,
+            weather: weatherData.data[0].weather.description,
             image: image,
           });
         } else {
@@ -65,15 +65,9 @@ export function initializeApp() {
   // Function to fetch weather data from Weatherbit API
   async function getWeatherData(baseURL, location, key) {
     const response = await fetch(baseURL + location + key);
-
-    if (response.status === 401) {
-      console.error("Unauthorized: Please check your API key.");
-      return;
-    }
-
     try {
       const data = await response.json();
-      if (data.main) {
+      if (data && data.data && data.data.length > 0) {
         return data;
       } else {
         console.error("Error: Unable to retrieve weather data.");
@@ -86,12 +80,6 @@ export function initializeApp() {
   // Function to fetch data from Geonames API
   async function getGeonamesData(baseURL, location, key) {
     const response = await fetch(baseURL + location + key);
-
-    if (response.status === 401) {
-      console.error("Unauthorized: Please check your API key.");
-      return;
-    }
-
     try {
       const data = await response.json();
       return data;
@@ -103,12 +91,6 @@ export function initializeApp() {
   // Function to fetch data from Pixabay API
   async function getPixabayData(baseURL, location, key) {
     const response = await fetch(`${baseURL}?q=${location}${key}`);
-
-    if (response.status === 401) {
-      console.error("Unauthorized: Please check your API key.");
-      return;
-    }
-
     try {
       const data = await response.json();
       return data;
