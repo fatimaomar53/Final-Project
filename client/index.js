@@ -1,5 +1,4 @@
-import "./styles/style.scss"; // Assuming you're using SCSS for styles
-
+import "./styles/style.scss";
 import { initializeApp } from "./js/app";
 
 document.addEventListener("DOMContentLoaded", () => {
