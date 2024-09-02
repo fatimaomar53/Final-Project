@@ -94,6 +94,52 @@ npm run test
 
 This will run all the test cases defined in the `src/server/server.test.js` file and check the server endpoints.
 
+- Node.js version v20.9.0 or above
+
+To check your current Node.js version, run the following command:
+
+```sh
+node -v
+
+- npm list to my project:
+├── @babel/core@7.25.2
+├── @babel/preset-env@7.25.4
+├── axios@1.7.5
+├── babel-loader@9.1.3
+├── clean-webpack-plugin@4.0.0
+├── cors@2.8.5
+├── css-loader@7.1.2
+├── dotenv-webpack@8.1.0
+├── dotenv@16.4.5
+├── express@4.19.2
+├── html-loader@5.1.0
+├── html-webpack-plugin@5.6.0
+├── jest@29.7.0
+├── mini-css-extract-plugin@2.9.1
+├── node-fetch@3.3.2
+├── html-loader@5.1.0
+├── html-webpack-plugin@5.6.0
+├── jest@29.7.0
+├── mini-css-extract-plugin@2.9.1
+├── node-fetch@3.3.2
+├── jest@29.7.0
+├── mini-css-extract-plugin@2.9.1
+├── node-fetch@3.3.2
+├── mini-css-extract-plugin@2.9.1
+├── node-fetch@3.3.2
+├── sass-loader@16.0.1
+├── sass-loader@16.0.1
+├── sass@1.77.8
+├── sass@1.77.8
+├── style-loader@4.0.0
+├── supertest@7.0.0
+├── webpack-cli@5.1.4
+├── webpack-cli@5.1.4
+├── webpack-dev-server@5.0.4
+└── webpack@5.94.0
+├── webpack-dev-server@5.0.4
+└── webpack@5.94.0
+
 ## Project Structure
 
 The project structure is organized as follows:
