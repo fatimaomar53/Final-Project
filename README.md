@@ -76,7 +76,14 @@ The project requires API keys for the following services:
 - **Weatherbit API**: Fetches current weather information based on the location.
 - **Pixabay API**: Retrieves relevant images for the location.
 
-Ensure you sign up for these services and replace the placeholders in the `.env` file with your API credentials.
+### Setting Up Environment Variables
+
+1. **Copy the `.env.template` file to `.env`**:
+
+   ```bash
+   cp .env.template .env
+   (These adjustments will allow others to understand the necessary configuration without exposing any sensitive data.)
+
 
 ## Scripts
 
