@@ -24,11 +24,12 @@
     "supertest": "^7.0.0",
     "webpack": "^5.94.0",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^5.0.4"
+    "webpack-dev-server": "^5.1.0"
   },
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack serve",
+    "start-server": "node src/server/server.js",
     "test": "jest"
   }
 }

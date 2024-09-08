@@ -12,7 +12,7 @@
       content="Travel Planner, Trip Planning, Weather Forecast, Countdown"
     />
     <title>Travel Planner</title>
-    <link href="../styles/style.scss" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
@@ -28,6 +28,7 @@
           alt="Image of the travel destination"
           class="destination-img"
         />
+
         <div class="trip-details">
           <h2 id="trip-details-heading">
             My trip to: <span id="destination">Paris, France</span>
@@ -79,6 +80,7 @@
           </div>
 
           <button
+            id="saveButton"
             type="submit"
             class="btn save-trip"
             aria-label="Save new trip"
@@ -92,5 +94,6 @@
     <footer>
       <p>&copy; 2024 Travel Planner. All rights reserved.</p>
     </footer>
+    <script src="bundle.js"></script>
   </body>
 </html>

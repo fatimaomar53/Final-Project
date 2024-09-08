@@ -1,11 +1,12 @@
-const path = require("path");
+const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
+const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   entry: "./client/index.js",
-  mode: "production",
+  mode: "development", // Set this to 'development' for local testing or 'production' for the final build
   output: {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
@@ -15,7 +16,15 @@ module.exports = {
     static: "./dist",
     open: true,
     hot: true,
+    // port: 8080, // Port for Webpack Dev Server
+    proxy: [
+      {
+        "/add": "http://localhost:8080",
+        "/all": "http://localhost:8080",
+      },
+    ],
   },
+
   module: {
     rules: [
       {
@@ -28,10 +37,10 @@ module.exports = {
         use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg|ico)$/i,
         type: "asset/resource",
         generator: {
-          filename: "images/[name][ext]",
+          filename: "media/1-final project.jpg",
         },
       },
     ],
@@ -44,6 +53,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./client/views/index.html",
       filename: "index.html",
+      favicon: "./client/views/media/1-final project.jpg",
     }),
   ],
 };

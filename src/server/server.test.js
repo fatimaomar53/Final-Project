@@ -21,6 +21,11 @@ app.post("/add", (req, res) => {
 });
 
 describe("Express Server", () => {
+  beforeEach(() => {
+    // Reset projectData before each test
+    projectData = {};
+  });
+
   it("should respond with an empty object on GET /all", async () => {
     const response = await request(app).get("/all");
     expect(response.statusCode).toBe(200);
@@ -37,5 +42,11 @@ describe("Express Server", () => {
     const response = await request(app).post("/add").send(data);
     expect(response.statusCode).toBe(200);
     expect(response.body).toEqual(data);
+  });
+
+  it("should handle missing or invalid data on POST /add", async () => {
+    const response = await request(app).post("/add").send({});
+    expect(response.statusCode).toBe(200);
+    expect(response.body).toEqual({}); // or however you handle invalid data
   });
 });

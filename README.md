@@ -52,21 +52,32 @@ To get started with the project, follow these steps:
 
 ## Usage
 
-To run the application locally:
-
+To run the application you need to start both the server and the client:
 1. **Build the project**:
 
    ```bash
    npm run build
    ```
 
-2. **Start the development server**:
+2. #### Starting the Server
 
-   ```bash
-   npm start
-   ```
+Run the following command to start the Express server:
 
-3. Open your web browser and navigate to `http://localhost:8080`.
+```bash
+npm run start-server
+
+This will start the server on http://localhost:8080 (or whichever port is specified in your configuration). Make sure no other application is using the same port.
+
+
+
+3. Starting the Client
+To start the client-side application, use:
+```bash
+npm start
+
+This will start the development server, typically served on http://localhost:8081.
+
+4. Open your web browser and navigate to `http://localhost:8081`.
 
 ## API Configuration
 
@@ -90,6 +101,15 @@ The project requires API keys for the following services:
 - `npm run build`: Builds the application for production using Webpack.
 - `npm start`: Runs the application in development mode with hot-reloading.
 - `npm run test`: Runs tests using Jest.
+
+
+### Explanation
+
+- **Section Added**: A new **Running the Application** section explains how to run the server and client.
+- **Clear Commands**: The `npm run start-server` command is highlighted as the way to start the backend server.
+- **Additional Information**: Additional commands (such as building for production and running tests) are also mentioned to give a full overview.
+
+Feel free to adjust the wording and structure to fit your project's needs and style.
 
 ## Testing
 

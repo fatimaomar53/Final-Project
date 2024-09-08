@@ -1,39 +1,32 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
-const path = require("path");
+const cors = require("cors"); // Import cors middleware
 
-// Initialize a new Express application
 const app = express();
+const PORT = 8080; // Ensure this matches the port in your client code
+let tripData = {};
+// app.use(cors()); // Enable CORS for all routes
+app.use(
+  cors({
+    origin: "http://localhost:8081", // Allow requests from this origin
+    methods: ["GET", "POST"], // Allow only specific HTTP methods
+    allowedHeaders: ["Content-Type"], // Allow only specific headers
+  })
+);
 
-// Middleware setup
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(cors());
+app.use(express.json()); // To parse JSON request bodies
 
-// Serve static files from the 'dist' directory
-app.use(express.static("dist"));
-
-// Initialize project data object
-let projectData = {};
-
-// GET route to send the current project data
-app.get("/all", (req, res) => {
-  res.send(projectData);
-});
-
-// POST route to add or update project data
+// Example /add endpoint to handle POST requests
 app.post("/add", (req, res) => {
-  projectData = req.body; // Save incoming data to the projectData object
-  res.send(projectData); // Send the updated data back to the client
+  const data = req.body; // Retrieve data from request body
+  console.log("Received data:", data);
+
+  // Perform your logic here (e.g., save data to database or memory)
+
+  // Send response back to client
+  res.status(200).json({ message: "Data successfully received!" });
 });
 
-// Set the port for the server
-const PORT = process.env.PORT || 8081;
-
-// Start the server
+// Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+  console.log(`Server running on http://localhost:${PORT}`);
 });
-
-module.exports = app; // Export the app for testing
