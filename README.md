@@ -59,7 +59,7 @@ To run the application you need to start both the server and the client:
    npm run build
    ```
 
-2. #### Starting the Server
+2. #### Starting the API server
 
 Run the following command to start the Express server:
 
