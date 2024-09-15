@@ -1,6 +1,7 @@
+const path = require("path");
 const common = require("./webpack.common.js");
 const { merge } = require("webpack-merge");
-const path = require("path");
+const { createProxyMiddleware } = require("http-proxy-middleware");
 
 module.exports = merge(common, {
   mode: "development",
@@ -9,12 +10,27 @@ module.exports = merge(common, {
     static: path.join(__dirname, "dist"),
     compress: true,
     port: 8081,
-    open: true, // This will open the browser automatically
-    proxy: [
-      {
-        "/add": "http://localhost:8080",
-        "/all": "http://localhost:8080",
-      },
-    ],
+    open: {
+      target: "http://localhost:8081", // or any URL you want to open
+      // You can also specify a browser like:
+      app: { name: "chrome" },
+    },
+    setupMiddlewares: (middlewares, devServer) => {
+      devServer.app.use(
+        "/add",
+        createProxyMiddleware({
+          target: "http://localhost:8080",
+          changeOrigin: true,
+        })
+      );
+      devServer.app.use(
+        "/all",
+        createProxyMiddleware({
+          target: "http://localhost:8080",
+          changeOrigin: true,
+        })
+      );
+      return middlewares;
+    },
   },
 });

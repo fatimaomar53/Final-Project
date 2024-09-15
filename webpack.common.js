@@ -24,7 +24,7 @@ module.exports = {
         test: /\.(png|jpe?g|gif|svg|ico)$/i,
         type: "asset/resource",
         generator: {
-          filename: "assets/media/1-final project.jpg",
+          filename: "assets/media/1-final-project.jpg",
         },
       },
     ],
@@ -37,7 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: "./src/client/views/index.html",
       filename: "index.html",
-      favicon: "./src/client/assets/media/1-final project.jpg",
+      favicon: "./src/client/assets/media/1-final-project.jpg",
     }),
   ],
 };
