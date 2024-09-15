@@ -1,32 +1,28 @@
 const express = require("express");
-const cors = require("cors"); // Import cors middleware
-
 const app = express();
-const PORT = 8080; // Ensure this matches the port in your client code
-let tripData = {};
-// app.use(cors()); // Enable CORS for all routes
-app.use(
-  cors({
-    origin: "http://localhost:8081", // Allow requests from this origin
-    methods: ["GET", "POST"], // Allow only specific HTTP methods
-    allowedHeaders: ["Content-Type"], // Allow only specific headers
-  })
-);
+const cors = require("cors");
 
-app.use(express.json()); // To parse JSON request bodies
+// Middleware
+app.use(express.json());
+app.use(cors());
 
-// Example /add endpoint to handle POST requests
+let trips = []; // Temporary in-memory storage
+
+// Endpoint to add data
 app.post("/add", (req, res) => {
-  const data = req.body; // Retrieve data from request body
-  console.log("Received data:", data);
-
-  // Perform your logic here (e.g., save data to database or memory)
-
-  // Send response back to client
-  res.status(200).json({ message: "Data successfully received!" });
+  const tripData = req.body;
+  trips.push(tripData); // Store the data
+  res.json({ message: "Data successfully received!" });
 });
 
-// Start server
+// Endpoint to get all trips data
+app.get("/all", (req, res) => {
+  res.json(trips); // Send all stored data
+});
+
+// Start the server
+const PORT = process.env.PORT || 8080; // Default to 8080 if not defined
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });

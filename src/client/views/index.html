@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A Travel Planner app that helps you plan and save trips with weather details and countdowns to your travel dates."
+    />
+    <meta
+      name="keywords"
+      content="Travel Planner, Trip Planning, Weather Forecast, Countdown"
+    />
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>Travel Planner</h1>
+      <nav aria-label="Main navigation">
+        <ul>
+          <li><a href="#add-trip-heading">Add New Trip</a></li>
+          <li><a href="#display-trip-heading">Trip Information</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Trip Information Section -->
+      <section class="trip-info" aria-labelledby="trip-details-heading">
+        <img
+          src="../assets/media/1-final project.jpg"
+          alt="Eiffel Tower in Paris, France"
+          class="destination-img"
+        />
+        <div class="trip-details">
+          <h2 id="trip-details-heading">
+            My trip to: <span id="trip-destination">Paris, France</span>
+          </h2>
+          <p>
+            Departing:
+            <time id="trip-departure-date">02/12/2024</time>
+          </p>
+          <section class="weather-info" aria-labelledby="weather-info-heading">
+            <h3 id="weather-info-heading">Typical weather for then is:</h3>
+            <p>
+              Temperature: <span id="trip-temp">46°F</span><br />
+              Description:
+              <span id="trip-weather-description"
+                >Mostly cloudy throughout the day.</span
+              >
+            </p>
+          </section>
+        </div>
+      </section>
+
+      <!-- Add Trip Form -->
+      <section class="add-trip" aria-labelledby="add-trip-heading">
+        <h2 id="add-trip-heading">Add a New Trip</h2>
+        <form id="trip-form" aria-describedby="add-trip-description">
+          <p id="add-trip-description">
+            Fill in the details below to add a new trip.
+          </p>
+          <div class="form-group">
+            <label for="location">Enter Location:</label>
+            <input
+              type="text"
+              id="location"
+              name="location"
+              placeholder="Enter Location (e.g., Paris, France)"
+              required
+              aria-required="true"
+            />
+          </div>
+          <div class="form-group">
+            <label for="departure-date">Departing:</label>
+            <input
+              type="date"
+              id="departure-date-input"
+              name="departure-date"
+              required
+              aria-required="true"
+            />
+          </div>
+
+          <button
+            id="saveButton"
+            type="submit"
+            class="btn save-trip"
+            aria-label="Save new trip"
+          >
+            Save Trip
+          </button>
+          <button
+            id="deleteButton"
+            type="button"
+            class="btn delete-trip"
+            aria-label="Delete trip"
+          >
+            Delete Trip
+          </button>
+          <button
+            id="displayButton"
+            type="button"
+            class="btn display-trip"
+            aria-label="Display trip"
+          >
+            Display Trip
+          </button>
+        </form>
+      </section>
+
+      <!-- Display Added Trip Info -->
+      <section class="display-trip-info" aria-labelledby="display-trip-heading">
+        <h2 id="display-trip-heading">Trip Information</h2>
+        <div id="trip-info-container" aria-live="polite">
+          <p>
+            <strong>Location:</strong> <span id="display-destination">N/A</span>
+          </p>
+          <p>
+            <strong>Departure Date:</strong>
+            <span id="display-departure-date"></span>
+          </p>
+          <p><strong>Temperature:</strong> <span id="display-temp"></span></p>
+          <p>
+            <strong>Weather:</strong>
+            <span id="display-weather-description"></span>
+          </p>
+
+          <img
+            id="display-image"
+            alt="Destination Image will appear here"
+            class="destination-img"
+          />
+          <!-- Add this link for viewing more images -->
+          <p id="display-more-images-link"></p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Travel Planner. All rights reserved.</p>
+    </footer>
+
+    <!-- JavaScript Bundle -->
+    <script src="bundle.js"></script>
+  </body>
+</html>

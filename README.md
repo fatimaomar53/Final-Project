@@ -95,6 +95,48 @@ The project requires API keys for the following services:
    cp .env.template .env
    (These adjustments will allow others to understand the necessary configuration without exposing any sensitive data.)
 
+Running Webpack in Development Mode
+To run Webpack in development mode, use the following command:
+
+bash:
+
+npx webpack --config webpack.dev.js
+
+PowerShell Execution Policy Issue
+If you encounter the following error when running Webpack on PowerShell:
+
+bash:
+
+webpack : File C:\Users\acer\AppData\Roaming\npm\webpack.ps1
+cannot be loaded because running scripts is disabled on this system. For more information, see about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170.
+
+This error occurs due to PowerShell's script execution policy. Follow these steps to resolve the issue:
+
+Open PowerShell as Administrator (search for "PowerShell", right-click and choose "Run as administrator").
+
+Run the following command to allow locally created scripts to run:
+
+bash
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+When prompted, type Y and press Enter to confirm.
+
+After this, you should be able to run the Webpack command without issues:
+
+bash
+
+npx webpack --config webpack.dev.js
+
+For more information on PowerShell's execution policies, visit the official documentation: about_Execution_Policies.
+
+Building for Production
+To create a production build, use the following command:
+
+bash
+
+npx webpack --config webpack.prod.js
+
+This update will guide anyone facing the same issue on how to resolve it wi
 
 ## Scripts
 
