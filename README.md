@@ -173,68 +173,36 @@ node -v
 - npm list to my project:
 ├── @babel/core@7.25.2
 ├── @babel/preset-env@7.25.4
-├── axios@1.7.5
-├── babel-loader@9.1.3
+├── @babel/preset-react@7.24.7
+├── axios@1.7.7
+├── babel-loader@9.2.1
+├── body-parser@1.20.3
 ├── clean-webpack-plugin@4.0.0
+├── copy-webpack-plugin@12.0.2
 ├── cors@2.8.5
 ├── css-loader@7.1.2
 ├── dotenv-webpack@8.1.0
 ├── dotenv@16.4.5
-├── express@4.19.2
+├── express@4.21.0
 ├── html-loader@5.1.0
 ├── html-webpack-plugin@5.6.0
+├── jest-environment-jsdom@28.1.3
 ├── jest@29.7.0
-├── mini-css-extract-plugin@2.9.1
-├── node-fetch@3.3.2
-├── html-loader@5.1.0
-├── html-webpack-plugin@5.6.0
-├── jest@29.7.0
-├── mini-css-extract-plugin@2.9.1
-├── node-fetch@3.3.2
-├── jest@29.7.0
-├── mini-css-extract-plugin@2.9.1
-├── node-fetch@3.3.2
 ├── mini-css-extract-plugin@2.9.1
 ├── node-fetch@3.3.2
 ├── sass-loader@16.0.1
-├── sass-loader@16.0.1
-├── sass@1.77.8
-├── sass@1.77.8
+├── sass@1.78.0
 ├── style-loader@4.0.0
 ├── supertest@7.0.0
 ├── webpack-cli@5.1.4
-├── webpack-cli@5.1.4
-├── webpack-dev-server@5.0.4
-└── webpack@5.94.0
-├── webpack-dev-server@5.0.4
-└── webpack@5.94.0
+├── webpack-dev-server@5.1.0
+├── webpack-merge@6.0.1
+├── webpack@5.94.0
+└── workbox-webpack-plugin@7.1.0
 
 ## Project Structure
 
-The project structure is organized as follows:
 
-```
-project-root/
-│
-├── client/
-│   │   ├── js/
-│   │   │   └── app.js
-│   │   ├── styles/
-│   │   │   └── style.scss
-│   │   └── index.js
-│   │   └──  .env
-│   └── server/
-│       ├── server.js
-│       └── server.test.js
-│   └── views/
-│       ├── index.html
-│       └── image
-├── dist/
-├── webpack.config.js
-├── node_modules
-├── package.json
-└── .gitignore
-```
 
 ## Built With
 
