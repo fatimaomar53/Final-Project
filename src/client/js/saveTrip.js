@@ -1,6 +1,8 @@
-import { sendData, updateUI } from "./app.js"; // Adjust path if necessary
+//saveTrip.js
+import { sendData, updateUI } from "./app.js";
 
 export async function saveTrip(location, departureDate) {
+  console.log("saveTrip called");
   try {
     const [weatherData, geonamesData, pixabayData] = await Promise.all([
       getWeatherData(location),
@@ -24,7 +26,7 @@ export async function saveTrip(location, departureDate) {
       console.error("Failed to retrieve data.");
     }
   } catch (error) {
-    console.error("Error in saveTrip: ", error);
+    console.error("Error in saveTrip:", error);
   }
 }
 
@@ -44,10 +46,10 @@ async function getWeatherData(location) {
   }
 }
 
-async function getGeonamesData(city) {
+async function getGeonamesData(location) {
   try {
     const response = await fetch(
-      `${process.env.GEONAMES_BASE_URL}/searchJSON?q=${city}&username=${process.env.GEONAMES_USERNAME}`
+      `${process.env.GEONAMES_BASE_URL}/searchJSON?q=${location}&username=${process.env.GEONAMES_USERNAME}`
     );
     if (!response.ok) {
       throw new Error(
@@ -63,7 +65,9 @@ async function getGeonamesData(city) {
 async function getPixabayData(location) {
   try {
     const response = await fetch(
-      `${process.env.PIXABAY_BASE_URL}/?q=${location}&key=${process.env.PIXABAY_API_KEY}`
+      `${process.env.PIXABAY_BASE_URL}/?q=${encodeURIComponent(location)}&key=${
+        process.env.PIXABAY_API_KEY
+      }`
     );
     if (!response.ok) {
       throw new Error(

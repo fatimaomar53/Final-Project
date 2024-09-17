@@ -6,25 +6,19 @@ body {
   background-color: #f9f9f9;
 }
 
-$primary-color: #005f73;
-$secondary-color: #0a9396;
-$accent-color: #94d2bd;
-$background-color: #e9d8a6;
-$text-color: #001219;
-
 body {
-  background-color: $background-color;
-  color: $text-color;
+  background-color: #e9d8a6;
+  color: #001219;
 }
 
 header {
-  background-color: $primary-color;
+  background-color: #005f73;
   color: #fff;
-  border-bottom: 1px solid $secondary-color;
+  border-bottom: 1px solid #0a9396;
 }
 
 .btn {
-  background-color: $secondary-color;
+  background-color: #0a9396;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -35,7 +29,7 @@ header {
 }
 
 .btn:hover {
-  background-color: $primary-color;
+  background-color: #005f73;
   transform: scale(1.05);
 }
 
@@ -43,7 +37,7 @@ header {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: $accent-color;
+  background-color: #94d2bd;
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
@@ -57,7 +51,7 @@ header {
 
 .trip-details p {
   margin: 15px 0;
-  color: $text-color;
+  color: #001219;
 }
 
 .destination-img {
@@ -66,14 +60,14 @@ header {
 }
 
 a {
-  color: $secondary-color;
+  color: #0a9396;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 a:hover {
-  color: $primary-color;
+  color: #005f73;
 }
 
 #trip-info-container div {
@@ -100,6 +94,7 @@ a:hover {
 .hidden {
   display: none;
 }
+
 .trip-item {
   border: 1px solid #ccc;
   padding: 10px;
@@ -130,9 +125,8 @@ a:hover {
     flex-direction: row;
     justify-content: space-between;
   }
-
   .trip-details {
     text-align: left;
     margin-left: 20px;
   }
-}
+}/*# sourceMappingURL=style.css.map */

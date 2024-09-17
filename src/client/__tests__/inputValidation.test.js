@@ -5,8 +5,8 @@ import { calculateRemainingDays } from "../js/dateUtils.js";
 // Mocking DOM elements for testing
 beforeEach(() => {
   document.body.innerHTML = `
-    <input id="city" type="text" />
-    <input id="date" type="date" />
+    <input id="location" type="text" />
+    <input id="departure-date" type="date" />
     <div id="city-error"></div>
     <div id="date-error"></div>
   `;
@@ -14,13 +14,12 @@ beforeEach(() => {
 
 // Mock the calculateRemainingDays function
 jest.mock("../js/dateUtils.js", () => ({
-  // Ensure this path is correct
   calculateRemainingDays: jest.fn(),
 }));
 
 test("should show error if city field is empty", () => {
-  const cityField = document.getElementById("city");
-  const dateField = document.getElementById("date");
+  const cityField = document.getElementById("location");
+  const dateField = document.getElementById("departure-date");
   const cityErrorElement = document.getElementById("city-error");
 
   cityField.value = "";
@@ -34,8 +33,8 @@ test("should show error if city field is empty", () => {
 });
 
 test("should show error if date field is empty", () => {
-  const cityField = document.getElementById("city");
-  const dateField = document.getElementById("date");
+  const cityField = document.getElementById("location");
+  const dateField = document.getElementById("departure-date");
   const dateErrorElement = document.getElementById("date-error");
 
   cityField.value = "Paris";
@@ -49,8 +48,8 @@ test("should show error if date field is empty", () => {
 });
 
 test("should show error if date is in the past", () => {
-  const cityField = document.getElementById("city");
-  const dateField = document.getElementById("date");
+  const cityField = document.getElementById("location");
+  const dateField = document.getElementById("departure-date");
   const dateErrorElement = document.getElementById("date-error");
 
   cityField.value = "Paris";
@@ -66,8 +65,8 @@ test("should show error if date is in the past", () => {
 });
 
 test("should return true if all inputs are valid", () => {
-  const cityField = document.getElementById("city");
-  const dateField = document.getElementById("date");
+  const cityField = document.getElementById("location");
+  const dateField = document.getElementById("departure-date");
 
   cityField.value = "Paris";
   dateField.value = "2024-12-01";
