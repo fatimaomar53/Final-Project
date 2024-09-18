@@ -119,7 +119,13 @@ Production Build:
 To bundle your application for production:
 ```bash
    npx webpack --config webpack.prod.js
+`````
 
+## Environment Setup
+
+1. Copy the `.env.template` file from the root directory and rename it to `.env`.
+
+2. Update the `.env` file with your environment-specific variables.
 
 ## Scripts
 
@@ -127,18 +133,24 @@ To bundle your application for production:
 - `npm start`: Runs the application in development mode with hot-reloading.
 - `npm run test`: Runs tests using Jest.
 
-
 ## Testing
 
 The project uses **Jest** and **Supertest** to test both the client and server functionality.
 
 To run all the test cases:
+
 ```bash
 npm run test
 
-`````
+```
 
 This command will execute all tests, including those defined in src/**tests**/ and src/server/server.test.js.
+
+## Prerequisites
+
+```
+- **Node.js**:v20.9.0
+```
 
 ## Project Structure
 
@@ -166,7 +178,6 @@ This command will execute all tests, including those defined in src/**tests**/ a
 │ │ │ ├──────── dateUtils.test.js
 │ │ │ ├──────── inputValidation.test.js
 │ │ └── index.js
-│ │ └── .env.template
 ├──── server/
 │ └── server/
 ├──── webpack.dev.js
@@ -176,7 +187,8 @@ This command will execute all tests, including those defined in src/**tests**/ a
 ├──── babel.config.json
 ├──── package.json
 ├──── .gitignore
-└── .env
+├──── .env.template
+└─── .env
 
 ## Service Workers
 
