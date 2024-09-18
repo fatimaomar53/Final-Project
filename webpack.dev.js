@@ -1,3 +1,4 @@
+//webpack.dev.js
 const path = require("path");
 const common = require("./webpack.common.js");
 const { merge } = require("webpack-merge");
@@ -13,7 +14,7 @@ module.exports = merge(common, {
     open: {
       target: "http://localhost:8081", // or any URL you want to open
       // You can also specify a browser like:
-      app: { name: "chrome" },
+      // app: { name: "chrome" },
     },
     setupMiddlewares: (middlewares, devServer) => {
       devServer.app.use(

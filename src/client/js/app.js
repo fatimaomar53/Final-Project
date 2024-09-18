@@ -30,7 +30,7 @@ export async function updateUI() {
       return;
     }
 
-    tripInfoContainer.innerHTML = "";
+    tripInfoContainer.innerHTML = ""; // Clear previous entries
 
     trips.forEach((trip, index) => {
       const remainingDays = calculateRemainingDays(trip.date);
@@ -74,7 +74,7 @@ export async function updateUI() {
       });
     });
 
-    displayMostRecentTrip(trips[trips.length - 1]);
+    displayMostRecentTrip(trips[trips.length - 1]); // Display the most recent trip
   } catch (error) {
     console.error("Error in updateUI:", error);
   }
@@ -92,12 +92,15 @@ function displayMostRecentTrip(data) {
   };
 
   // Clear previous content to avoid duplication
-  if (elements.destination) elements.destination.innerText = "";
-  if (elements.departureDate) elements.departureDate.innerText = "";
-  if (elements.temp) elements.temp.innerText = "";
-  if (elements.weatherDescription) elements.weatherDescription.innerText = "";
-  if (elements.image) elements.image.src = "";
-  if (elements.daysRemaining) elements.daysRemaining.innerText = "";
+  Object.values(elements).forEach((element) => {
+    if (element) {
+      if (element.tagName === "IMG") {
+        element.src = "";
+      } else {
+        element.innerText = "";
+      }
+    }
+  });
 
   // Display the most recent trip
   if (data) {
@@ -151,6 +154,7 @@ export async function sendData(data) {
     console.error("Error in sendData:", error);
   }
 }
+
 // Function to initialize the app and attach event listeners
 export function initializeApp() {
   console.log("Initializing app");

@@ -1,5 +1,6 @@
 // index.js
-import "./assets/styles/style.scss";
+import "./assets/styles/main.scss";
+
 import { initializeApp } from "./js/app.js";
 
 document.addEventListener("DOMContentLoaded", () => {

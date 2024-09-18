@@ -2,12 +2,12 @@
 const path = require("path");
 
 module.exports = {
-  entry: "./src/client/index.js", // Adjust the entry point as needed
+  entry: "./src/client/index.js",
   output: {
     filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"), // Adjust output path as needed
+    path: path.resolve(__dirname, "dist"),
   },
-  mode: "development", // Change to 'production' for production builds
+  mode: "development",
   module: {
     rules: [
       {
@@ -26,4 +26,5 @@ module.exports = {
       },
     ],
   },
+  devtool: false, // Disable source maps
 };

@@ -34,8 +34,7 @@ app.delete("/delete/:id", (req, res) => {
 });
 
 // Start the server
-const PORT = process.env.PORT || 8080; // Default to 8080 if not defined
-
-app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });

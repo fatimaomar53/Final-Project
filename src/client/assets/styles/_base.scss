@@ -1,0 +1,54 @@
+@import "variables"; /* Import the variables */
+
+body {
+  font-family: "Roboto", sans-serif;
+  color: $text-color;
+  margin: 0;
+  padding: 0;
+  background-color: $background-color;
+}
+
+a {
+  color: $secondary-color;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: $primary-color;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 768px) {
+  body {
+    font-size: 14px; /* Adjust font size for smaller screens */
+  }
+
+  .btn {
+    padding: 8px 16px; /* Adjust button size for small screens */
+  }
+
+  .trip-info {
+    padding: 10px; /* Adjust padding for smaller screens */
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body {
+    font-size: 12px; /* Further adjust font size for very small screens */
+  }
+
+  .btn {
+    padding: 6px 12px; /* Further adjust button size */
+  }
+
+  .trip-info {
+    padding: 8px; /* Further adjust padding */
+  }
+}

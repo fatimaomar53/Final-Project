@@ -1,28 +1,3 @@
-body {
-  font-family: "Roboto", sans-serif;
-  color: #333;
-  margin: 0;
-  padding: 0;
-  background-color: #f9f9f9;
-}
-
-$primary-color: #005f73;
-$secondary-color: #0a9396;
-$accent-color: #94d2bd;
-$background-color: #e9d8a6;
-$text-color: #001219;
-
-body {
-  background-color: $background-color;
-  color: $text-color;
-}
-
-header {
-  background-color: $primary-color;
-  color: #fff;
-  border-bottom: 1px solid $secondary-color;
-}
-
 .btn {
   background-color: $secondary-color;
   color: #fff;
@@ -65,17 +40,6 @@ header {
   max-width: 100%; /* Ensure images are not too large */
 }
 
-a {
-  color: $secondary-color;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s ease;
-}
-
-a:hover {
-  color: $primary-color;
-}
-
 #trip-info-container div {
   margin-bottom: 10px; /* Ensure there's spacing between trip entries */
 }
@@ -100,6 +64,7 @@ a:hover {
 .hidden {
   display: none;
 }
+
 .trip-item {
   border: 1px solid #ccc;
   padding: 10px;
